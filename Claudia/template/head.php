@@ -18,19 +18,3 @@
 			}
 			</style>
 			<![endif]-->
-	<div id="header">
-		<div id="navmenu">
-			<ul id="menu">
-				<li><a href="#">Gallerie</a>
-					<ul id="submenu-1">
-						<li><a href="#">Bilder</a></li>
-						<li><a href="#">Objekte</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Ausstellungen</a></li>
-				<li><a href="#">Portrait</a></li>
-				<li><a href="#">Home</a></li>
-				<li><a href="contact.html">Kontakt</a></li>
-			</ul>
-		</div>
-	</div>
