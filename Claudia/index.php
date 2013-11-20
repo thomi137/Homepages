@@ -11,8 +11,8 @@
 	}
 	else{		
 		$content = $_GET['content'];
-		//TODO! Do some sanitation
 		include($pages[$content]);
 	}
 	echo "</div>\n</div>";
-	include_once("template/footer.php");?>
+	include_once("template/footer.php");
+?>

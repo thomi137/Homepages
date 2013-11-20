@@ -40,7 +40,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a2c31', end
 }
 
 #main_content{
-	padding-top:80px}
+	padding-top:80px;
+	padding-bottom:50px;	
+}
 
 /* Footer Styling */
 #footer{
