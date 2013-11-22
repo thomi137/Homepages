@@ -1,8 +1,8 @@
 <?php 
 	require_once("config/config.php");
-	include_once("template/head.php");
+	include_once(TEMPLATES.$template['mainsite'].'head.php');
 	echo '<div id="header">';
-	include("template/topnavigation.php");
+	include(TEMPLATES.$template['mainsite'].'topnavigation.php');
 	echo "</div>";
 	echo '<div id="container">';
 	echo '<div id="main_content">';
@@ -14,5 +14,5 @@
 		include($pages[$content]);
 	}
 	echo "</div>\n</div>";
-	include_once("template/footer.php");
+	include_once(TEMPLATES.$template['mainsite'].'footer.php');
 ?>

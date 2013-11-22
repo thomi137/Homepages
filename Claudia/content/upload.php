@@ -1,6 +1,7 @@
 <?php
 
 	require_once('../modules/db_connection.php');
+	require_once('../modules/image_resizer.php');
 	// get file data
 	if (!empty($_FILES['image'])) {
 		 $image = $_FILES['image'];
@@ -18,12 +19,11 @@
 	   	}
 	   	$name = preg_replace('/[^A-Z0-9._-]/i', '_', $image['name']);
     
-	/* create resized image
-	 * create thumbnail
-	 * store image
-	 * store thumbnail
-	 * write stuff to db
-	 */
+	   	$img = new Image($_FILES['image']['tmp_name'], $file_type);
+	   	$img->save_to_paths('../gallery/pictures', '../gallery/thumbnails');
+	
+	   	// write stuff to db
+	 
 	 } 
 ?>
 <form class='contact-us' action="upload.php" method="post" enctype="multipart/form-data">
