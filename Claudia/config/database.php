@@ -4,10 +4,11 @@
 $db = array();
 
 /* test DB */
-$db['test']['connection'] = 'localhost:8889';
+$db['test']['connection'] = 'localhost';
 $db['test']['database'] = 'TEST_DB';
-$db['test']['username'] = 'testuser';
-$db['test']['password'] = '9sQPWQeA9uq8AXfH';
+$db['test']['username'] = 'tester';
+$db['test']['password'] = 'XPLmmCLFP2GqxqUh';
+$db['test']['port'] = 8889;
 
 /* prod DB*/
 $db['prod']['connection'] = '';

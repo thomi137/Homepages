@@ -41,9 +41,13 @@ class Image {
 		$date = new DateTime();
 		$rnd = rand(1024, 2048);
 		$filename = $rnd.'_'.$date->getTimestamp().$this->file_ext;
-		$thumbfilename = $rnd.'_'.$date->getTimestamp().$this->file_ext;
-		imagejpeg($this->resize_image, $image_path.'/'.$filename, 90);
-		imagejpeg($this->thumbnail, $thumb_path.'/'.$filename, 90);
+		$thumbfilename = $rnd.'_'.$date->getTimestamp().'_thumb'.$this->file_ext;
+		$filenames = array();
+		$filenames[] = $filename;
+		$filenames[] = $thumbfilename;
+		imagejpeg($this->resize_image, $image_path.'/'.$filename, 100);
+		imagejpeg($this->thumbnail, $thumb_path.'/'.$thumbfilename, 90);
+		return $filenames;
 	}
 	
 	function __construct($uploaded_image, $type, $max_width = 640, $max_height = 480, $thumb_width = 75, $thumb_height = 75){
@@ -59,12 +63,11 @@ class Image {
 		$this->create_resize($max_width, $max_height);
 		$this->create_thumbnail($thumb_width, $thumb_height);
 	}
-	/*
+	
 	function __destruct(){
 		imagedestroy($image);
 		imagedestroy($resize_image);
 		imagedestroy($thumbnail);
 	}
-	*/
 }
 ?>

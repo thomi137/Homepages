@@ -2,6 +2,10 @@
 
 	require_once('../modules/db_connection.php');
 	require_once('../modules/image_resizer.php');
+	
+	$file_path = '../gallery/pictures';
+	$thumb_path = '../gallery/thumbnails';
+	$filenames = array();
 	// get file data
 	if (!empty($_FILES['image'])) {
 		 $image = $_FILES['image'];
@@ -20,9 +24,19 @@
 	   	$name = preg_replace('/[^A-Z0-9._-]/i', '_', $image['name']);
     
 	   	$img = new Image($_FILES['image']['tmp_name'], $file_type);
-	   	$img->save_to_paths('../gallery/pictures', '../gallery/thumbnails');
-	
-	   	// write stuff to db
+	   	$filenames = $img->save_to_paths($file_path, $thumb_path);
+	   	$image_info = array();
+	   	$image_info[] = 'PAINTING';
+	   	$image_info[] = $filenames[0];
+	   	$image_info[] = $file_path;
+	   	$image_info[] = 'title';   
+	   	$image_info[] = $filenames[1];
+	   	$image_info[] = $thumb_path;
+	   	$image_info[] = 'Lorem ipsum dolor gägägüüüööö amet';
+	   	$image_info[] = 'NULL';
+	   	
+	   	$query = new InsertImageQuery($image_info);
+	   	$query->add_image();
 	 
 	 } 
 ?>
@@ -35,3 +49,12 @@
 <textarea name="description" class="message" placeholder="Bildbeschrieb"></textarea>      
 <button type="submit">Nachricht senden</button>
 </form>
+
+
+//Gallery Section
+//Image_filepath
+//Image_filename
+//Thumbnail_filepath
+//Thumbnail_filename
+//Text
+//groupid
