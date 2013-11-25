@@ -6,9 +6,10 @@ define('TEMPLATES', ROOT.'template/');
 
 /* Setup of all pages navigation */
 $pages = array();
-$pages['gallery'] = ROOT.'content/gallery.php';
+$pages['art'] = ROOT.'content/art.php';
 $pages['contact'] = ROOT.'content/contact.php';
 $pages['upload'] = ROOT.'content/upload.php';
+$pages['about'] = ROOT.'content/about.php';
 
 /* Setup of media content path */
 $paths = array();
@@ -17,7 +18,7 @@ $paths['thumbnails'] = ROOT.'gallery/thumbnails/';
 
 /* Setup of template folder */
 $template = array();
-$template['mainsite'] = 'front/'
+$template['mainsite'] = 'front/';
 
 
 ?>

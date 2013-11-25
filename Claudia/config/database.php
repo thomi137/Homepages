@@ -10,10 +10,11 @@ $db['test']['username'] = 'tester';
 $db['test']['password'] = 'XPLmmCLFP2GqxqUh';
 $db['test']['port'] = 8889;
 
-/* prod DB*/
-$db['prod']['connection'] = '';
-$db['prod']['database'] = '';
-$db['prod']['username'] = '';
-$db['prod']['password'] = '';
+/* prod DB */
+$db['prod']['connection'] = 'localhost';
+$db['prod']['database'] = 'claudize_main';
+$db['prod']['username'] = 'claudize_script';
+$db['prod']['password'] = 'aMEhHTMjnY5PZDft';
+$db['prod']['port'] = '';
 
 ?>

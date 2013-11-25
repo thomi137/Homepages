@@ -7,7 +7,7 @@
 	echo '<div id="container">';
 	echo '<div id="main_content">';
 	if (!isset($_GET['content']) || !key_exists($_GET['content'], $pages)){
-		include($pages['gallery']);	
+		include($pages['art']);	
 	}
 	else{		
 		$content = $_GET['content'];

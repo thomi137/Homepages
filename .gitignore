@@ -1,2 +1,5 @@
 Claudia/Archive
 Claudia/gallery
+.DS_Store
+Claudia/config/database.php
+Claudia/img

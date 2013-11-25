@@ -1,5 +1,5 @@
 $(document).ready(function() {
-			$("a[rel=example_group]").fancybox({
+			$("a[rel=group]").fancybox({
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none',
 				'titlePosition' 	: 'outside',

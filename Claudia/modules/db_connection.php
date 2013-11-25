@@ -15,7 +15,7 @@ class MySQLDbConnection{
 	private $connection = '';
 
 	private function __construct(){
-		include("../config/database.php");
+		include("./config/database.php");
 		$this->host = $db['test']['connection'];
 		$this->database = $db['test']['database'];
 		$this->username = $db['test']['username'];
@@ -26,6 +26,8 @@ class MySQLDbConnection{
 			error_log('Connection Error: '.$this->connection->connect_errno.': '.$this->connection->connect_error);
 			throw new Exception('Error: '.$this->connection->error);
 		}
+		$this->connection->set_charset("utf-8");
+		$this->connection->query('SET NAMES utf8');
 	}
 	
 	public static function get_instance(){
@@ -51,13 +53,11 @@ class InsertImageQuery{
 	private $types = 'sssssssi';
 	private $mysql = '';
 	private $stmt = '';
-	private $image_data = array();
 	
-	function __construct($image_data){
+	function __construct($section, $filename, $filepath, $title, $thumbfilename, $thumbfilepath, $text, $group_id){
 		$this->mysql = MySQLDbConnection::get_instance()->get_connection();
 	    $this->stmt = $this->mysql->prepare($this->query);
-		$this->stmt->bind_param($this->types, $image_data[0], $image_data[1], $image_data[2], $image_data[3], $image_data[4], $image_data[5], $image_data[6], $image_data[7]);
-		$this->image_data = $image_data;
+		$this->stmt->bind_param($this->types, $section, $filename, $filepath, $title, $thumbfilename, $thumbfilepath, $text, $group_id);
 	}
 	
 	function add_image(){
@@ -72,10 +72,39 @@ class InsertImageQuery{
 
 class DbUtils{
 	
-	public static function get_image_titles(){
-		$query = "SELECT IMAGE_TITLE FROM IMAGES";
-		return MySQLDbConnection::get_connection()->query($query);
+	public static function get_image_data(){
+		$query = "SELECT IMAGE_FILEPATH , IMAGE_FILENAME , THUMB_PATH , THUMB_FILENAME , IMAGE_TITLE , TEXT FROM IMAGES";
+	    return MySQLDbConnection::get_instance()->get_connection()->query($query);
 	}
+	
+	private static function cleanInput($input) {
+
+		 $search = array(
+			 '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+			 '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+			 '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+			 '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+		 );
+
+		 $output = preg_replace($search, '', $input);
+		 return $output;
+	}
+		 
+	public static function sanitize($input) {
+		if (is_array($input)) {
+        	foreach($input as $var=>$val) {
+            $output[$var] = sanitize($val);
+        }
+    }
+    else {
+        if (get_magic_quotes_gpc()) {
+            $input = stripslashes($input);
+        }
+        $input  = self::cleanInput($input);
+        $output = mysqli_real_escape_string(MySQLDbConnection::get_instance()->get_connection(), $input);
+    }
+    return $output;
+}
 	
 }
 

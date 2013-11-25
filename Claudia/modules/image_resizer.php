@@ -31,10 +31,18 @@ class Image {
 	private function create_thumbnail($thumb_width, $thumb_height){
 		$midX = imagesx($this->resize_image) / 2.0;
 		$midY = imagesy($this->resize_image) / 2.0;
-		$srcX = $midX - $thumb_width / 2.0;
-		$srcY = $midY - $thumb_height / 2.0;
+		if(imagesx($this->resize_image) / imagesy($this->resize_image)<=1){
+			$srcW = imagesx($this->resize_image);
+			$srcX = $midX - (imagesx($this->resize_image) / 2.0);
+			$srcY = $midY - $srcX;
+		}else{
+			$srcW = imagesy($this->resize_image);
+			$srcY = $midY - (imagesy($this->resize_image) / 2.0); 	
+			$srcX = $midX - $midY;
+		}
+		
 		$this->thumbnail = imagecreatetruecolor($thumb_width, $thumb_height);
-		imagecopyresized($this->thumbnail, $this->resize_image, 0, 0, $srcX, $srcY, $thumb_width, $thumb_height, $thumb_width, $thumb_height);
+		imagecopyresized($this->thumbnail, $this->resize_image, 0, 0, $srcX, $srcY, $thumb_width, $thumb_height, $srcW, $srcW);
 	}
 	
 	public function save_to_paths($image_path, $thumb_path){
@@ -65,9 +73,9 @@ class Image {
 	}
 	
 	function __destruct(){
-		imagedestroy($image);
-		imagedestroy($resize_image);
-		imagedestroy($thumbnail);
+		imagedestroy($this->image);
+		imagedestroy($this->resize_image);
+		imagedestroy($this->thumbnail);
 	}
 }
 ?>
