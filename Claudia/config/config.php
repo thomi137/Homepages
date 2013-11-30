@@ -8,7 +8,7 @@ define('TEMPLATES', ROOT.'template/');
 $pages = array();
 $pages['art'] = ROOT.'content/art.php';
 $pages['contact'] = ROOT.'content/contact.php';
-$pages['upload'] = ROOT.'content/upload.php';
+$pages['admin'] = ROOT.'content/admin.php';
 $pages['about'] = ROOT.'content/about.php';
 
 /* Setup of media content path */

@@ -35,7 +35,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a2c31', end
 #container{
 	width: 1000px;
 	margin: auto;
-	background: rgba(82,86,95,0.57);
+	/*background: rgba(82,86,95,0.57);*/
 	min-height: 500px;
 }
 
@@ -56,6 +56,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a2c31', end
 	font-size: 9pt;
 	
 }
+
+#czpic{
+	float: right;
+	
+}
+
+#czportrait{
+ margin-left: 5px;
+}
+
+
 
 /* Menu Styling*/
 
@@ -245,4 +256,82 @@ nav ul ul ul {
     left: -15px;
     border: 5px solid rgba(248, 204, 55, 0);
     border-right: 10px solid #f8cc37;
+}
+
+input.file {
+	width: 150px;
+	height: 20px;
+	border: 1px solid #BBB;
+	border-right: 0;
+	color: #888;
+	padding: 5px;
+	
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	
+	outline: none;
+}
+
+/* Login Form */
+#login{
+	width: inherit;
+	margin-left: 296px;
+	margin-right: 296px;
+}
+
+#login input {
+	border: none;
+	height: 48px;
+	outline: none;
+	display: block;
+}
+
+#login input[type="text"] {
+	background-color: #dedede;
+	border-top: 1px solid #000;
+	border-right: 1px solid #000;
+	border-left: 1px solid #000;
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	color: #363636;
+	padding-left: 36px;
+	width: 204px;
+}
+
+#login input[type="password"] {
+	background-color: #dedede;
+	border-top: 1px solid #828282;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	color: #363636;
+	margin-bottom: 20px;
+	padding-left: 36px;
+	width: 204px;
+}
+
+#login input[type="submit"] {
+	background-color: #e14d4d;
+	border: 1px solid #391515;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+	line-height: 48px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 240px;
+}
+
+#login input[type="submit"]:hover {
+	background-color: #f15958;
 }
