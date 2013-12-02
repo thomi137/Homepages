@@ -1,7 +1,5 @@
 
-<div id = "czpic">
-<img src="./img/cZemp.jpeg" alt="Claudia Zemp" width="300px"/>
-</div>
+
 <div id = "czportrait">
 <h2>Portrait</h2>
 
@@ -16,4 +14,7 @@ Ihre Bilder sind bunt, vielschichtig, strukturiert und lebhaft. Sie wiederspiege
 Die Werke passen in moderne Räumlichkeiten: In Häuser, Büros, Empfangshallen sowie in Hotels oder Praxen.
 <br />
 Sie sind wunderbar um mit den Gedanken auf Reisen zu gehen.
+</div>
+<div id = "czpic">
+<img src="./img/cZemp.jpeg" alt="Claudia Zemp" width="300px"/>
 </div>

@@ -1,7 +1,7 @@
 <?php
 echo<<<END
 <form class='contact-us' action="#" method="post">
-<h1>Kontaktieren Sie mich!</h1>
+<h2>Reden Sie mit Claudia Zemp</h2>
 <hr />
 <br />
 <input type="text" name="name" class="name" placeholder="Name">

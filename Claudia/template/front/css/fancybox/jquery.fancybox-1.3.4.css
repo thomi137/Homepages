@@ -80,7 +80,7 @@
 	position: relative;
 	overflow: hidden;
 	z-index: 1102;
-	border: 0px solid #fff;
+	border: 0px solid #dedede;
 }
 
 #fancybox-hide-sel-frame {
@@ -281,6 +281,8 @@
 }
 
 #fancybox-title-over {
+	margin-left: -5px;
+	margin-right: -5px;
 	padding: 10px;
 	background-image: url('fancy_title_over.png');
 	display: block;
