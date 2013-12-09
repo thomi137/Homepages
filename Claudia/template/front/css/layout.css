@@ -6,11 +6,23 @@ body{
 	margin:0;
 }
 
+a{
+	text-decoration: none;
+	color: #c8c8c8;	
+}
+
+
+h1, 
 h2{
 	text-align: left;
 	font-size: small;
 	font-family: "Helvetica Neue", sans-serif;
 	font-weight: 300;
+}
+
+h1{
+	
+	font-size: large;
 }
 
 img {
@@ -136,6 +148,10 @@ float: left;
 	color: #fff;
 }
 
+#navmenu ul li.active a{
+	color: #fff;
+}
+
 #navmenu ul li a{
 	display: block;
 	padding: 15px 30px;
@@ -172,12 +188,38 @@ nav ul ul ul {
   top:0;
 }
 
+/* Front Page Stypling */
+
+.front_image{
+	margin: 0;
+	width: 996px;
+}
+
+.front_image_title{
+	line-height: 20pt;
+	font-weight: 400;
+}
+
+.front_image_text{
+	
+}
+
+
 /* Contact Form Styling */
 
+#contact_address, #contact_form{
+	float: right;
+}
+
+#contact_form{
+	width: 600px;
+	margin: 0, auto;
+}
+
+
 .contact-us {
-    position: relative;
     width: 400px;
-    margin: 0 auto;
+    margin: 0, auto;
     background: #727272;
 }
 
@@ -194,11 +236,15 @@ nav ul ul ul {
     height: 38px;
     margin: 0 0 20px 30px;
     padding: 0 18px;
-	    background: rgba(61,68,72,1);
+	background: #dedede;
     border: 1px solid #eee;
     font-size: 15px;
     color: #000;
     outline: none;
+}
+
+input.mandatory{
+	border-left-color: red;
 }
 
 .contact-us input:-moz-placeholder { color: #000; }
@@ -206,11 +252,13 @@ nav ul ul ul {
 .contact-us input::-webkit-input-placeholder { color: #000; }
 
 .contact-us textarea {
+	font-family: "Helvetica Neue", sans-serif;
+	resize: none;
     width: 302px;
-    height: 92px;
+    height: 150px;
     margin: 0 0 20px 30px;
     padding: 10px 18px 0 18px;
-    background: rgba(61,68,72,1);
+    background: #dedede;
     border: 1px solid #eee;
     font-size: 15px;
     color: #000;
